@@ -1,4 +1,4 @@
-import SongList from "./components/SongList.tsx";
+import SongList from "./components/song/List.tsx";
 
 export default function App() {
   return (

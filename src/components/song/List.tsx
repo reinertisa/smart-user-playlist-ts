@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import { v4 as uuid } from 'uuid';
+import NewSongForm from "./Form.tsx";
 
 type SongState = {
     id: number | string,
@@ -13,7 +14,7 @@ export default function SongList() {
         {id: 3, title: 'Song 3'},
     ]);
 
-    const addSong = (): void => setSongs([...songs, {id: uuid(), title: 'new song'}])
+    const addSong = (title: string): void => setSongs([...songs, {id: uuid(), title}])
 
     return (
         <div className="song-list">
@@ -22,7 +23,7 @@ export default function SongList() {
                     <li key={song.id}>{song.title}</li>
                 ))}
             </ul>
-            <button onClick={addSong}>Add a song</button>
+            <NewSongForm addSong={addSong} />
         </div>
     )
 }
